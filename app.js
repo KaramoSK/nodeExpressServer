@@ -18,6 +18,6 @@ mongoose.connect(
 
 app.use(express.json());
 const routes = require('./routes/userRoutes.js')
-app.use('/api', routes);
+app.use('/api/users', routes);
 
 app.listen(port);

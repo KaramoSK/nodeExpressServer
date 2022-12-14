@@ -10,9 +10,9 @@ exports.getAllUsers = async (req, res) => {
 
 exports.getUserById = async (req, res) => {
     try {
-        res.json(await User.findById(req.params.userid))
-    }catch(erros) {
-        res.json({message: error})
+        res.json(await User.findById(req.params.id));
+    }catch(error) {
+        res.json({message: error});
     }
 }
 
@@ -33,16 +33,16 @@ exports.postUser = async (req, res) => {
 
 exports.deleteUserById = async (req, res) => {
     try {
-        res.json(await User.deleteOne({'_id':req.params.userid}));
+        res.json(await User.deleteOne({'_id':req.params.id}));
     }catch(error) {
         res.json({message: error});
     }
 }
 
-exports.updatUser = async (req, res) => {
+exports.updateUser = async (req, res) => {
     try {
         res.json(await User.updateOne(
-            {'_id': req.params.userid},
+            {'_id': req.params.id},
             {
                 $set: {
                     title: req.body.title,
